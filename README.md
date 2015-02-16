@@ -23,7 +23,7 @@ Once the plugin has been installed, it may be injected inside your Gulpfile with
 var ngGraph = require('gulp-angular-architecture-graph');
 
 gulp.task('default', function(){
-    gulp.src('src/*.js')
+    gulp.src('src/js/*.js', , '!src/js/external/*')
         .pipe(ngGraph({
             dest: 'architecture'
         }));
