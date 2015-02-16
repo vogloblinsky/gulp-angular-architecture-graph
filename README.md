@@ -20,7 +20,13 @@ npm install gulp-angular-architecture-graph --save-dev
 Once the plugin has been installed, it may be injected inside your Gulpfile with this line of JavaScript:
 
 ```js
-var gulp-angular-graph = require('gulp-angular-architecture-graph');
+var ngGraph = require('gulp-angular-architecture-graph');
+
+gulp.task('default', function(){
+    gulp.src('src/*.js')
+        .pipe(ngGraph())
+        .pipe(gulp.dest('architecture'));
+});
 ```
 
 ## The task
@@ -54,5 +60,3 @@ Install via `yaourt` the graphviz package e.g.: `yaourt graphviz`.
 ***Requirements***
 
 https://github.com/lucalanca/angular-architecture-graph
-
-***Gulpfile***
