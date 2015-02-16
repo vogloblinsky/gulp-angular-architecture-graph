@@ -1,0 +1,28 @@
+{
+  "name": "gulp-angular-architecture-graph",
+  "version": "0.0.1",
+  "description": "Generate modules dependencies graph",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vogloblinsky/gulp-angular-architecture-graph.git"
+  },
+  "keywords": [
+    "gulp",
+    "gulpplugin",
+    "angularjs",
+    "graph"
+  ],
+  "author": "Vincent Ogloblinsky <vincent.ogloblinsky@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vogloblinsky/gulp-angular-architecture-graph/issues"
+  },
+  "homepage": "https://github.com/vogloblinsky/gulp-angular-architecture-graph",
+  "engines": {
+    "node": ">=0.10"
+  }
+}
