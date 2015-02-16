@@ -41,13 +41,9 @@ var gulpAngularGraph = function(options) {
         _files.push(Helpers.parseSrcFile(file));
         cb();
     }, function (cb) {
-        console.log('on end: ', _files);
-
         var codebaseArchitecture = Helpers.analyseFiles(_files, _options);
 
         Helpers.generateGraphFiles(codebaseArchitecture, _options);
-
-        console.log(codebaseArchitecture);
 
         cb();
     });

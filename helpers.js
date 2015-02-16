@@ -98,7 +98,7 @@ module.exports = function(gutil) {
 	var parseSrcFile = function(file) {
 	    return {
         	id: path.basename(file.path),
-        	text: file.contents.toString('utf8',0,5)
+        	text: file.contents.toString('utf8')
     	};
 	};
 
@@ -109,13 +109,11 @@ module.exports = function(gutil) {
 
 	var generateGraphFiles = function(angular, config) {
 		generateLegendGraph(config);
-    	/*
-    	generateAllGraph(angular, files);
-    	generateModulesGraph(angular, files);
+		generateAllGraph(angular, config);
+		generateModulesGraph(angular, config);
     	angular.modules.forEach(function (module) {
-      		generateModuleGraph(module, files);
+      		generateModuleGraph(module, config);
     	});
-		*/
 		return angular;
 	};
 
@@ -128,16 +126,23 @@ module.exports = function(gutil) {
 		writeToFile(config.dest + '/dot/legend.dot', legendResult);
 	};
 
-	var generateAllGraph = function() {
-
+	var generateAllGraph = function(angular, config) {
+		var allResult = templates.allTemplate({
+      		modules: angular.modules
+    	});
+    	writeToFile(config.dest + '/dot/all.dot', allResult);
 	};
 
-	var generateModulesGraph = function() {
-
+	var generateModulesGraph = function(angular, config) {
+		var modulesResult = templates.modulesTemplate({
+        	modules: angular.modules
+    	});
+    	writeToFile(config.dest + '/dot/modules.dot', modulesResult);
 	};
 
-	var generateModuleGraph = function() {
-
+	var generateModuleGraph = function(module, config) {
+		var moduleResult = templates.moduleTemplate(module);
+		writeToFile(config.dest + '/dot/modules/' + module.name + '.dot', moduleResult);
 	};
 
 	return {
