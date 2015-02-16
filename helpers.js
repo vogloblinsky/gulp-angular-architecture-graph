@@ -152,7 +152,7 @@ module.exports = function(gutil) {
 		});
 		file.walk(config.dest + '/dot', function(ie, dirPath, dirs, files) {
 			var i = 0,
-				len = files.length;
+				len = (files||[]).length;
 
 			//TODO : handle subdirectories
 
