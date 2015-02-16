@@ -5,7 +5,8 @@
 [devdepstat-url]: https://david-dm.org/vogloblinsky/gulp-angular-architecture-graph#info=devDependencies
 [devdepstat-image]: https://david-dm.org/vogloblinsky/gulp-angular-architecture-graph/dev-status.png
 
-Generate modules dependencies graph. Port of https://github.com/lucalanca/grunt-angular-architecture-graph
+Generate modules dependencies graph. 
+Port of https://github.com/lucalanca/grunt-angular-architecture-graph
 
 ## Getting Started
 
@@ -14,7 +15,7 @@ This plugin requires Gulp `~3.8.7`
 If you haven't used [Gulp](http://gulpjs.com/) before, be sure to check out the [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) guide, as it explains how to create a [Gulpfile](https://github.com/gulpjs/gulp#sample-gulpfilejs) as well as install and use Gulp plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install gulp-angular-architecture-graph --save-dev
+npm install --save-dev gulp-angular-architecture-graph
 ```
 
 Once the plugin has been installed, it may be injected inside your Gulpfile with this line of JavaScript:
@@ -23,7 +24,7 @@ Once the plugin has been installed, it may be injected inside your Gulpfile with
 var ngGraph = require('gulp-angular-architecture-graph');
 
 gulp.task('default', function(){
-    gulp.src('src/js/*.js', , '!src/js/external/*')
+    gulp.src('src/js/*.js', '!src/js/external/*')
         .pipe(ngGraph({
             dest: 'architecture'
         }));
@@ -58,13 +59,7 @@ The windows installer of graphviz: [graphviz-X.XX.msi](http://www.graphviz.org/D
 
 Install via `yaourt` the graphviz package e.g.: `yaourt graphviz`.
 
-#### General
-
-***Requirements***
-
-https://github.com/lucalanca/angular-architecture-graph
-
-#### Demos
+## Demos
 
 ![legend](https://raw.githubusercontent.com/vogloblinsky/gulp-angular-architecture-graph/master/docs/images/legend.png "Generated Graph Legend")
 
@@ -81,9 +76,9 @@ https://github.com/lucalanca/angular-architecture-graph
 ![angular-ui/bootstrap tooltip module ](https://raw.githubusercontent.com/vogloblinsky/gulp-angular-architecture-graph/master/docs/images/ui.bootstrap.tooltip.png "angular-ui/bootstrap Dependencies graph")
 
 
-### Options
+## Options
 
-#### options.hideAngularServices
+### options.hideAngularServices
 Type: `Boolean`
 Default value: `true`
 
@@ -93,7 +88,7 @@ A boolean value that shows angular services (e.g. $http, $q) as dependencies whe
 hideAngularServices: false
 ```
 
-#### options.shapeModules
+### options.shapeModules
 Type: `String`
 Default value: `component`
 
@@ -107,7 +102,7 @@ nodes.
 shapeModules: 'triangle'
 ```
 
-#### options.shapeFactories
+### options.shapeFactories
 Type: `String`
 Default value: `ellipse`
 
@@ -125,7 +120,7 @@ nodes.
 shapeFactories: 'house'
 ```
 
-#### options.shapeDirectives
+### options.shapeDirectives
 Type: `String`
 Default value: `cds`
 
@@ -142,7 +137,7 @@ shapeDirectives: 'trapezium'
 
 Available graphviz shapes are shown [here](http://www.graphviz.org/doc/info/shapes.html)
 
-#### options.colorScheme
+### options.colorScheme
 Type: `String`
 Default value: `paired12`
 
@@ -155,7 +150,7 @@ colorScheme: 'set19'
 
 Available graphviz colour schemes are shown [here](http://www.graphviz.org/doc/info/colors.html)
 
-### List of Contributors
+## List of Contributors
 
 - vogloblinsky     (current maintainer)
 - lucalanca (initial creator of grunt version)
