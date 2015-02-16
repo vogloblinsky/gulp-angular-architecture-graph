@@ -4,7 +4,10 @@ var architectureGraph = require('angular-architecture-graph'),
 	dot               = require('dot'),
 	path 			  = require('path'),
 	fs 				  = require('fs-extra'),
-	Q 				  = require('q');
+	Q 				  = require('q'),
+	graphviz 		  = require('graphviz'),
+	file 			  = require('file'),
+	process		      = require('child_process');
 
 dot.templateSettings.strip = false;
 
@@ -145,11 +148,45 @@ module.exports = function(gutil) {
 		writeToFile(config.dest + '/dot/modules/' + module.name + '.dot', moduleResult);
 	};
 
+	var renderDotFiles = function(files, config) {
+		//Loop through all dot files generated, and generated a map 'dot':'png'
+		file.walk(config.dest, function(ie, dirPath, dirs, files) {
+			fs.mkdir(config.dest + '/png');
+
+			var i = 0,
+				len = files.length;
+
+			//TODO : handle subdirectories
+
+			for(i; i < len; i++) {
+				var ls = process.spawn('dot', [
+                    '-Tpng',
+                    files[i],
+                    '-o',
+                    config.dest + '/png/' + files[i].replace(dirPath + '/', '').replace('.dot', '') + '.png' 
+                ]);
+	
+				ls.stdout.on('data', function (data) {
+				  console.log('stdout: ' + data);
+				});
+				
+				ls.stderr.on('data', function (data) {
+				  console.log('stderr: ' + data);
+				});
+				
+				ls.on('close', function (code) {
+				  console.log('child process exited with code ' + code);
+				});
+			}
+		})
+	};
+
 	return {
 		preprocessTemplates : preprocessTemplates,
     	parseSrcFile 		: parseSrcFile,
     	analyseFiles 		: analyseFiles,
-    	generateGraphFiles	: generateGraphFiles
+    	generateGraphFiles	: generateGraphFiles,
+    	renderDotFiles		: renderDotFiles
   	};
 	
 };

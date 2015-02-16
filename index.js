@@ -45,6 +45,8 @@ var gulpAngularGraph = function(options) {
 
         Helpers.generateGraphFiles(codebaseArchitecture, _options);
 
+        Helpers.renderDotFiles(_files, _options);
+
         cb();
     });
 }
