@@ -24,8 +24,9 @@ var ngGraph = require('gulp-angular-architecture-graph');
 
 gulp.task('default', function(){
     gulp.src('src/*.js')
-        .pipe(ngGraph())
-        .pipe(gulp.dest('architecture'));
+        .pipe(ngGraph({
+            dest: 'architecture'
+        }));
 });
 ```
 
