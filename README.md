@@ -1,5 +1,9 @@
-# gulp-angular-architecture-graph
-Generate modules dependencies graph
+# gulp-angular-architecture-graph  [![Dependency Status][depstat-image]][depstat-url]
+
+[depstat-url]: https://david-dm.org/vogloblinsky/gulp-angular-architecture-graph
+[depstat-image]: https://david-dm.org/vogloblinsky/gulp-angular-architecture-graph.svg
+
+Generate modules dependencies graph. Port of https://github.com/lucalanca/grunt-angular-architecture-graph
 
 ## Getting Started
 
@@ -44,5 +48,9 @@ The windows installer of graphviz: [graphviz-X.XX.msi](http://www.graphviz.org/D
 Install via `yaourt` the graphviz package e.g.: `yaourt graphviz`.
 
 #### General
+
+***Requirements***
+
+https://github.com/lucalanca/angular-architecture-graph
 
 ***Gulpfile***
