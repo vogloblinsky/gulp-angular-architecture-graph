@@ -19,20 +19,6 @@ var gulpAngularGraph = function(options) {
 
     _.merge(_options, options);
 
-    gutil.log('arguments: ', arguments, _options);
-
-    // 1. Parse Files
-    //var parsedFiles = Helpers.parseSrcFiles(f);
-
-    // 2. Get codebase graph using angular-architecture graph
-    //var codebaseArchitecture = Helpers.analyseFiles(parsedFiles, options);
-
-    // 3. Generate .dot files
-    //Helpers.generateGraphFiles(codebaseArchitecture, f);
-
-    // 4. Generate diagram files
-    //Helpers.renderDotFiles(f);
-    
     var _files = [];
 
     Helpers.preprocessTemplates(_options);

@@ -43,7 +43,6 @@ module.exports = function(gutil) {
             if (err) {
                 console.log(err);
             } else {
-                console.log('JSON ' + filename + ' saved');
                 deferred.resolve();
             }
         });
@@ -67,10 +66,8 @@ module.exports = function(gutil) {
   	};
 
   	var preprocessTemplates = function(options) {
-  		console.log('preprocessTemplates');
   		readTemplateFiles().then(function(datas) {
-  			console.log('All templates processed');
-
+  			
   			templateFiles['legend'] = datas[0];
   			templateFiles['all'] = datas[1];
   			templateFiles['modules'] = datas[2];
@@ -150,9 +147,10 @@ module.exports = function(gutil) {
 
 	var renderDotFiles = function(files, config) {
 		//Loop through all dot files generated, and generated a map 'dot':'png'
-		file.walk(config.dest, function(ie, dirPath, dirs, files) {
-			fs.mkdir(config.dest + '/png');
-
+		fs.mkdir(config.dest + '/png', function() {
+			//DONE
+		});
+		file.walk(config.dest + '/dot', function(ie, dirPath, dirs, files) {
 			var i = 0,
 				len = files.length;
 
@@ -171,11 +169,11 @@ module.exports = function(gutil) {
 				});
 				
 				ls.stderr.on('data', function (data) {
-				  console.log('stderr: ' + data);
+					console.log('stderr: ' + data);
 				});
 				
 				ls.on('close', function (code) {
-				  console.log('child process exited with code ' + code);
+					//Done
 				});
 			}
 		})
