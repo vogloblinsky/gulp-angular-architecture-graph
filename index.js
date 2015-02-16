@@ -21,19 +21,19 @@ var gulpAngularGraph = function(options) {
 
     var _files = [];
 
-    Helpers.preprocessTemplates(_options);
-
     return through.obj(function (file, enc, cb) {
         _files.push(Helpers.parseSrcFile(file));
         cb();
     }, function (cb) {
         var codebaseArchitecture = Helpers.analyseFiles(_files, _options);
 
-        Helpers.generateGraphFiles(codebaseArchitecture, _options);
-
-        Helpers.renderDotFiles(_files, _options);
-
-        cb();
+        Helpers.preprocessTemplates(_options).then(function() {
+            Helpers.generateGraphFiles(codebaseArchitecture, _options).then(function() {
+                Helpers.renderDotFiles(_files, _options).then(function() {
+                    cb();
+                });
+            });
+        });
     });
 }
 

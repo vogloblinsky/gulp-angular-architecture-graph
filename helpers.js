@@ -66,6 +66,7 @@ module.exports = function(gutil) {
   	};
 
   	var preprocessTemplates = function(options) {
+        var deferred = Q.defer();
   		readTemplateFiles().then(function(datas) {
   			
   			templateFiles['legend'] = datas[0];
@@ -92,7 +93,10 @@ module.exports = function(gutil) {
 		    templates.allTemplate     = dot.template(templateFiles.all);
 		    templates.modulesTemplate = dot.template(templateFiles.modules);
 		    templates.moduleTemplate  = dot.template(templateFiles.module);
+
+            deferred.resolve();
   		});
+        return deferred.promise;
 	}
 
 	var parseSrcFile = function(file) {
@@ -108,13 +112,15 @@ module.exports = function(gutil) {
 	};
 
 	var generateGraphFiles = function(angular, config) {
-		generateLegendGraph(config);
+        var deferred = Q.defer();
+        generateLegendGraph(config);
 		generateAllGraph(angular, config);
 		generateModulesGraph(angular, config);
     	angular.modules.forEach(function (module) {
       		generateModuleGraph(module, config);
     	});
-		return angular;
+        deferred.resolve();
+		return deferred.promise;
 	};
 
 	/**
@@ -146,6 +152,7 @@ module.exports = function(gutil) {
 	};
 
 	var renderDotFiles = function(files, config) {
+        var deferred = Q.defer();
 		//Loop through all dot files generated, and generated a map 'dot':'png'
 		fs.mkdir(config.dest + '/png', function() {
 			//DONE
@@ -176,7 +183,10 @@ module.exports = function(gutil) {
 					//Done
 				});
 			}
-		})
+
+            deferred.resolve();
+		});
+        return deferred.promise;
 	};
 
 	return {
