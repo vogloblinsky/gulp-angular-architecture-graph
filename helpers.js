@@ -8,15 +8,21 @@ dot.templateSettings.strip = false;
 
 module.exports = function(gutil) {
 
-	function parseSrcFile(file) {
+	var parseSrcFile = function(file) {
 	    return {
         	id: path.basename(file.path),
         	text: file.contents.toString('utf8',0,5)
     	};
-	}
+	};
+
+	var analyseFile = function(file, options) {
+		var graph = architectureGraph(file, options);
+    	return graph.angular;
+	};
 
 	return {
-    	parseSrcFile : parseSrcFile
+    	parseSrcFile : parseSrcFile,
+    	analyseFile  : analyseFile
   	};
 	
 };

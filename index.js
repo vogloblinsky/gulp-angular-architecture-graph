@@ -1,13 +1,20 @@
 'use strict';
 
-var gutil       = require('gulp-util'),
+var through     = require('through2'),
+    gutil       = require('gulp-util'),
     map         = require('map-stream'),
     Helpers     = require('./helpers')(gutil),
 
     PLUGIN_NAME = 'gulp-angular-architecture-graph';
 
 var gulpAngularGraph = function(options) {
-    options = options || {};
+    options = options || {
+        hideAngularServices: true,
+        shapeModules: 'component',
+        shapeFactories: 'ellipse',
+        shapeDirectives: 'cds',
+        colorScheme: 'paired12'
+    };
 
     gutil.log('arguments: ', arguments);
 
@@ -36,8 +43,10 @@ var gulpAngularGraph = function(options) {
         }
 
         var parsedFile = Helpers.parseSrcFile(file);
+
+        var codebaseArchitecture = Helpers.analyseFile(parsedFile, options);
         
-        gutil.log('parsedFile: ', parsedFile);
+        gutil.log('results: ', parsedFile, codebaseArchitecture);
         
         cb(null, file);
     });
