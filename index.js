@@ -4,11 +4,12 @@ var through     = require('through2'),
     gutil       = require('gulp-util'),
     map         = require('map-stream'),
     Helpers     = require('./helpers')(gutil),
+    _           = require('lodash'),
 
     PLUGIN_NAME = 'gulp-angular-architecture-graph';
 
 var gulpAngularGraph = function(options) {
-    options = options || {
+    var _options = {
         hideAngularServices: true,
         shapeModules: 'component',
         shapeFactories: 'ellipse',
@@ -16,7 +17,9 @@ var gulpAngularGraph = function(options) {
         colorScheme: 'paired12'
     };
 
-    gutil.log('arguments: ', arguments);
+    _.merge(_options, options);
+
+    gutil.log('arguments: ', arguments, _options);
 
     // 1. Parse Files
     //var parsedFiles = Helpers.parseSrcFiles(f);
@@ -29,26 +32,24 @@ var gulpAngularGraph = function(options) {
 
     // 4. Generate diagram files
     //Helpers.renderDotFiles(f);
+    
+    var _files = [];
 
-    return map(function(file, cb) {
-        
-        if (file.isNull()) {
-            cb(null, file);
-            return;
-        }
+    Helpers.preprocessTemplates(_options);
 
-        if (file.isStream()) {
-            cb(new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
-            return;
-        }
+    return through.obj(function (file, enc, cb) {
+        _files.push(Helpers.parseSrcFile(file));
+        cb();
+    }, function (cb) {
+        console.log('on end: ', _files);
 
-        var parsedFile = Helpers.parseSrcFile(file);
+        var codebaseArchitecture = Helpers.analyseFiles(_files, _options);
 
-        var codebaseArchitecture = Helpers.analyseFile(parsedFile, options);
-        
-        gutil.log('results: ', parsedFile, codebaseArchitecture);
-        
-        cb(null, file);
+        Helpers.generateGraphFiles(codebaseArchitecture, _options);
+
+        console.log(codebaseArchitecture);
+
+        cb();
     });
 }
 
