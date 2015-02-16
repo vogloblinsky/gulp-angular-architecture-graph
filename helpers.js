@@ -97,7 +97,19 @@ module.exports = function(gutil) {
             deferred.resolve();
   		});
         return deferred.promise;
-	}
+	};
+
+    var preprocessOutputDirs = function(options) {
+        var deferred = Q.defer();
+        fs.mkdir(options.dest, function() {
+            fs.mkdir(options.dest + '/dot', function() {
+                fs.mkdir(options.dest + '/png', function() {
+                    deferred.resolve();
+                });
+            });
+        });
+        return deferred.promise;
+    };
 
 	var parseSrcFile = function(file) {
 	    return {
@@ -154,43 +166,42 @@ module.exports = function(gutil) {
 	var renderDotFiles = function(files, config) {
         var deferred = Q.defer();
 		//Loop through all dot files generated, and generated a map 'dot':'png'
-		fs.mkdir(config.dest + '/png', function() {
-			//DONE
-		});
-		file.walk(config.dest + '/dot', function(ie, dirPath, dirs, files) {
-			var i = 0,
-				len = (files||[]).length;
+	    file.walk(config.dest + '/dot', function(ie, dirPath, dirs, files) {
+            var i = 0,
+                len = (files||[]).length;
 
-			//TODO : handle subdirectories
+            //TODO : handle subdirectories
 
-			for(i; i < len; i++) {
-				var ls = process.spawn('dot', [
+            for(i; i < len; i++) {
+                var ls = process.spawn('dot', [
                     '-Tpng',
                     files[i],
                     '-o',
                     config.dest + '/png/' + files[i].replace(dirPath + '/', '').replace('.dot', '') + '.png' 
                 ]);
-	
-				ls.stdout.on('data', function (data) {
-				  console.log('stdout: ' + data);
-				});
-				
-				ls.stderr.on('data', function (data) {
-					console.log('stderr: ' + data);
-				});
-				
-				ls.on('close', function (code) {
-					//Done
-				});
-			}
+    
+                ls.stdout.on('data', function (data) {
+                  console.log('stdout: ' + data);
+                });
+                
+                ls.stderr.on('data', function (data) {
+                    console.log('stderr: ' + data);
+                });
+                
+                ls.on('close', function (code) {
+                    //Done
+                });
+            }
 
             deferred.resolve();
-		});
+        });
+		
         return deferred.promise;
 	};
 
 	return {
 		preprocessTemplates : preprocessTemplates,
+        preprocessOutputDirs: preprocessOutputDirs,
     	parseSrcFile 		: parseSrcFile,
     	analyseFiles 		: analyseFiles,
     	generateGraphFiles	: generateGraphFiles,

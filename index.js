@@ -27,10 +27,12 @@ var gulpAngularGraph = function(options) {
     }, function (cb) {
         var codebaseArchitecture = Helpers.analyseFiles(_files, _options);
 
-        Helpers.preprocessTemplates(_options).then(function() {
-            Helpers.generateGraphFiles(codebaseArchitecture, _options).then(function() {
-                Helpers.renderDotFiles(_files, _options).then(function() {
-                    cb();
+        Helpers.preprocessOutputDirs(_options).then(function() {
+            Helpers.preprocessTemplates(_options).then(function() {
+                Helpers.generateGraphFiles(codebaseArchitecture, _options).then(function() {
+                    Helpers.renderDotFiles(_files, _options).then(function() {
+                        cb();
+                    });
                 });
             });
         });
