@@ -17,3 +17,8 @@ gulp.task('ng-graph', function(){
         }))
         .pipe(gulp.dest('architecture'));
 });
+
+
+# Exclude folders
+
+'!**/external/**'
