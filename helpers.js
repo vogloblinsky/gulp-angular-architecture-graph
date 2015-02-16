@@ -104,7 +104,9 @@ module.exports = function(gutil) {
         fs.mkdir(options.dest, function() {
             fs.mkdir(options.dest + '/dot', function() {
                 fs.mkdir(options.dest + '/png', function() {
-                    deferred.resolve();
+                    fs.mkdir(options.dest + '/png/modules', function() {
+                        deferred.resolve();
+                    });
                 });
             });
         });
@@ -164,20 +166,23 @@ module.exports = function(gutil) {
 	};
 
 	var renderDotFiles = function(files, config) {
-        var deferred = Q.defer();
+        var deferred = Q.defer(),
+            dotsFolder = config.dest + '/dot',
+            pngsFolder = config.dest + '/png';
 		//Loop through all dot files generated, and generated a map 'dot':'png'
-	    file.walk(config.dest + '/dot', function(ie, dirPath, dirs, files) {
+	    file.walk(dotsFolder, function(ie, dirPath, dirs, files) {
             var i = 0,
                 len = (files||[]).length;
 
             //TODO : handle subdirectories
 
             for(i; i < len; i++) {
-                var ls = process.spawn('dot', [
+                var finalName = files[i].replace(dotsFolder, pngsFolder).replace('.dot', '.png'),
+                ls = process.spawn('dot', [
                     '-Tpng',
                     files[i],
                     '-o',
-                    config.dest + '/png/' + files[i].replace(dirPath + '/', '').replace('.dot', '') + '.png' 
+                    finalName
                 ]);
     
                 ls.stdout.on('data', function (data) {
