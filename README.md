@@ -1,4 +1,5 @@
-# gulp-angular-architecture-graph  [![Dependency Status][depstat-image]][depstat-url] [![devdependencies][devdepstat-image]][devdepstat-url] [![Build status][build-image]][build-url]
+# gulp-angular-architecture-graph
+[![Dependency Status][depstat-image]][depstat-url] [![devdependencies][devdepstat-image]][devdepstat-url] [![Build status][build-image]][build-url]
 
 [depstat-url]: https://david-dm.org/vogloblinsky/gulp-angular-architecture-graph
 [depstat-image]: https://david-dm.org/vogloblinsky/gulp-angular-architecture-graph.svg
