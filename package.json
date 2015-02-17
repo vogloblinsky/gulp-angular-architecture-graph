@@ -26,6 +26,7 @@
     "node": ">=0.10"
   },
   "devDependencies": {
+    "gulp": "^3.8.11"
   },
   "dependencies": {
     "angular-architecture-graph": "^0.2.3",
