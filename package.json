@@ -4,7 +4,7 @@
   "description": "Generate modules dependencies graph",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "intern-client config=test/intern"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "fs-extra": "^0.16.3",
     "lodash": "^3.2.0",
     "graphviz": "0.0.8",
-    "file": "^0.2.2"
+    "file": "^0.2.2",
+    "intern": "^2.2.2"
   }
 }

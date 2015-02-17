@@ -1,2 +1,4 @@
-test/
+test
 .travis.yml
+gulpfile.js
+docs
