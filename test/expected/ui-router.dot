@@ -1,0 +1,52 @@
+digraph dependencies {
+  node[shape="component",style="filled",colorscheme=paired12]
+
+
+    node[shape="component"]
+    "ui.router"[label="ui.router", color=1]
+
+    
+      "ui.router.state"[label="ui.router.state", color=1]
+      "ui.router.state" -> "ui.router"
+    
+
+
+    node[shape="ellipse"]
+    
+
+
+    
+
+    
+
+    
+
+    node[shape="cds"]
+    
+
+    
+
+
+
+
+
+
+
+
+
+    node[shape="ellipse",style="filled", color=9]
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+
+}
