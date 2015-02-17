@@ -4,7 +4,7 @@
   "description": "Generate modules dependencies graph",
   "main": "index.js",
   "scripts": {
-    "test": "intern-client config=test/intern"
+    "test": "gulp && intern-client config=test/intern"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,8 @@
     "node": ">=0.10"
   },
   "devDependencies": {
-    "gulp": "^3.8.11"
+    "gulp": "^3.8.11",
+    "gulp-clean": "^0.3.1"
   },
   "dependencies": {
     "angular-architecture-graph": "^0.2.3",
