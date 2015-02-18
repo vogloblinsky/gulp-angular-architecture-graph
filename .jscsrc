@@ -4,7 +4,8 @@
         "gulpfile.js",
         "docs/**",
         "tmp/**",
-        "templates/**"
+        "templates/**",
+        "test/fixtures/**"
     ],
     "disallowEmptyBlocks": true,
     "disallowKeywords": [
