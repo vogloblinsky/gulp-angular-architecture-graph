@@ -11,7 +11,8 @@ gulpAngularGraph = function(options) {
         shapeModules: 'component',
         shapeFactories: 'ellipse',
         shapeDirectives: 'cds',
-        colorScheme: 'paired12'
+        colorScheme: 'paired12',
+        dest: 'architecture'
     },
 
     _files = [];
