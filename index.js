@@ -2,11 +2,8 @@
 
 var through     = require('through2'),
     gutil       = require('gulp-util'),
-    map         = require('map-stream'),
     Helpers     = require('./helpers')(gutil),
     _           = require('lodash'),
-
-    PLUGIN_NAME = 'gulp-angular-architecture-graph',
 
 gulpAngularGraph = function(options) {
     var _options = {
