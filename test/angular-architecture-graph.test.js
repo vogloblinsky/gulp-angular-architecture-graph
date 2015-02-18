@@ -14,12 +14,12 @@ define([
 
     bdd.describe('ngArchitectureGraph plugin', function() {
 
-        fs.readFile(expectedResultFile, 'utf8', function (err, dataExpected) {
+        fs.readFile(expectedResultFile, 'utf8', function(err, dataExpected) {
             if (err) {
                 compareFiles = false;
             }
             expectedResultFileData = dataExpected;
-            fs.readFile(testResultFile, 'utf8', function (err, dataTest) {
+            fs.readFile(testResultFile, 'utf8', function(err, dataTest) {
                 if (err) {
                     compareFiles = false;
                 }

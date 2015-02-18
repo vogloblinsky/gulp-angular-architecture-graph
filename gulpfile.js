@@ -4,7 +4,7 @@ var gulp    = require('gulp'),
 
     tmpDir = 'tmp';
 
-gulp.task('clean', function () {
+gulp.task('clean', function() {
     return gulp.src(tmpDir, {read: false})
         .pipe(clean());
 });

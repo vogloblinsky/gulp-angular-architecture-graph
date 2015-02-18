@@ -6,25 +6,25 @@ var through     = require('through2'),
     Helpers     = require('./helpers')(gutil),
     _           = require('lodash'),
 
-    PLUGIN_NAME = 'gulp-angular-architecture-graph';
+    PLUGIN_NAME = 'gulp-angular-architecture-graph',
 
-var gulpAngularGraph = function(options) {
+gulpAngularGraph = function(options) {
     var _options = {
         hideAngularServices: true,
         shapeModules: 'component',
         shapeFactories: 'ellipse',
         shapeDirectives: 'cds',
         colorScheme: 'paired12'
-    };
+    },
+
+    _files = [];
 
     _.merge(_options, options);
 
-    var _files = [];
-
-    return through.obj(function (file, enc, cb) {
+    return through.obj(function(file, enc, cb) {
         _files.push(Helpers.parseSrcFile(file));
         cb();
-    }, function (cb) {
+    }, function(cb) {
         var codebaseArchitecture = Helpers.analyseFiles(_files, _options);
 
         Helpers.preprocessOutputDirs(_options).then(function() {
@@ -38,6 +38,5 @@ var gulpAngularGraph = function(options) {
         });
     });
 }
-
 
 module.exports = gulpAngularGraph;
