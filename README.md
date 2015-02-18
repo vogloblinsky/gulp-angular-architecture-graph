@@ -1,5 +1,5 @@
 # gulp-angular-architecture-graph
-[![Dependency Status][depstat-image]][depstat-url] [![devdependencies][devdepstat-image]][devdepstat-url] [![Build status][build-image]][build-url] [![NPM version][npm-image]][npm-url] [![Coverage Status][coverage-image]][coverage-url]
+[![Dependency Status][depstat-image]][depstat-url] [![devdependencies][devdepstat-image]][devdepstat-url] [![Build status][build-image]][build-url] [![NPM version][npm-image]][npm-url] [![Coverage Status][coverage-image]][coverage-url] [![Codacy Badge][codacy-image]][codacy-url]
 
 [depstat-url]: https://david-dm.org/vogloblinsky/gulp-angular-architecture-graph
 [depstat-image]: https://david-dm.org/vogloblinsky/gulp-angular-architecture-graph.svg
@@ -11,6 +11,8 @@
 [npm-image]: https://badge.fury.io/js/gulp-angular-architecture-graph.svg
 [coverage-url]: https://coveralls.io/r/vogloblinsky/gulp-angular-architecture-graph?branch=master
 [coverage-image]: https://coveralls.io/repos/vogloblinsky/gulp-angular-architecture-graph/badge.svg?branch=master
+[codacy-url]: https://www.codacy.com/public/vincentogloblinsky/gulp-angular-architecture-graph
+[codacy-image]: https://www.codacy.com/project/badge/8d00b4d7b46a465fbf8a79dea9013d39
 
 Generate modules dependencies graph. 
 Port of https://github.com/lucalanca/grunt-angular-architecture-graph
