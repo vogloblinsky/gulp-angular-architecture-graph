@@ -4,7 +4,8 @@
   "description": "Generate modules dependencies graph",
   "main": "index.js",
   "scripts": {
-    "test": "gulp && intern-client config=test/intern"
+    "test": "gulp && intern-client config=test/intern reporters=lcov",
+    "coveralls": "cat lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   },
   "dependencies": {
     "angular-architecture-graph": "^0.2.3",
+    "coveralls": "^2.11.2",
     "dot": "^1.0.3",
     "through2": "^0.6.3",
     "gulp-util": "^3.0.3",
