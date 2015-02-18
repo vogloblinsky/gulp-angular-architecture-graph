@@ -5,7 +5,6 @@ var architectureGraph = require('angular-architecture-graph'),
     path              = require('path'),
     fs                = require('fs-extra'),
     Q                 = require('q'),
-    graphviz          = require('graphviz'),
     file              = require('file'),
     process           = require('child_process');
 
