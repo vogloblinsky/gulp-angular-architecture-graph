@@ -1,7 +1,8 @@
 language: node_js
 node_js:
-  - "0.10"
+    - "0.10"
 before_install:
-  - npm install npm@1.4 -g
+    - sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++
+    - npm install npm@1.4 -g
 before_script:
-  - npm install -g gulp
+    - npm install -g gulp
