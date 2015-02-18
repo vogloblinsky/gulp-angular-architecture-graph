@@ -87,6 +87,16 @@ Install via `yaourt` the graphviz package e.g.: `yaourt graphviz`.
 
 ## Options
 
+### options.dest
+Type: `String`
+Default value: `architecture`
+
+A string value that define the output directory.
+
+```js
+architecture: 'out'
+```
+
 ### options.hideAngularServices
 Type: `Boolean`
 Default value: `true`
