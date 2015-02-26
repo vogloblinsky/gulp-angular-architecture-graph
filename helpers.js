@@ -2,6 +2,7 @@
 
 var architectureGraph = require('angular-architecture-graph'),
     dot               = require('dot'),
+    os                = require('os'),
     path              = require('path'),
     fs                = require('fs-extra'),
     Q                 = require('q'),
@@ -55,6 +56,10 @@ module.exports = function(gutil) {
             readFile(basePath + 'templates/modules.def'),
             readFile(basePath + 'templates/module.def')
         ]);
+    },
+
+    cleanPath = function(pathParam) {
+        return pathParam.replace('/', '\\');
     },
 
     templates = {
@@ -166,8 +171,9 @@ module.exports = function(gutil) {
 
     renderDotFiles = function(files, config) {
         var deferred = Q.defer(),
-            dotsFolder = config.dest + '/dot',
-            pngsFolder = config.dest + '/png';
+        slash = (os.platform() === 'win32' || os.platform() === 'win64') ? '\\' : '/',
+            dotsFolder = cleanPath(config.dest) + slash + 'dot',
+            pngsFolder = cleanPath(config.dest) + slash + 'png';
         //Loop through all dot files generated, and generated a map 'dot':'png'
         file.walk(dotsFolder, function(ie, dirPath, dirs, files) {
             var i = 0,
