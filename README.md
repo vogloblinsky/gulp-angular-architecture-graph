@@ -62,6 +62,8 @@ if running OS X and using homebrew, simply execute:
 
 The windows installer of graphviz: [graphviz-X.XX.msi](http://www.graphviz.org/Download..php), remember to set the Path and point it to your bin directory. e.g. ```C:\Program Files (x86)\GraphvizX.XX\bin```.
 
+Add the reference of graphviz binary in your PATH, for example : C:\Program Files\Graphviz2.38\bin
+
 #### Manjaro 0.8.11 (arch linux)
 
 ***Requirements***
