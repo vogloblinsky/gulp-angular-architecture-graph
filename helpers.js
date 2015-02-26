@@ -105,7 +105,7 @@ module.exports = function(gutil) {
 
     preprocessOutputDirs = function(options) {
         var deferred = Q.defer();
-        fs.mkdir(options.dest, function() {
+        fs.mkdirs(options.dest, function() {
             fs.mkdir(options.dest + '/dot', function() {
                 fs.mkdir(options.dest + '/png', function() {
                     fs.mkdir(options.dest + '/png/modules', function() {
