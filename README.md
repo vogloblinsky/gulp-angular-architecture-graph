@@ -19,6 +19,30 @@ Port of https://github.com/lucalanca/grunt-angular-architecture-graph
 
 ## Getting Started
 
+### 0 - Install graphviz
+
+#### OS X
+
+- [**graphviz**](http://www.graphviz.org/)
+
+if running OS X and using homebrew, simply execute:
+
+```
+ brew install graphviz
+```
+
+#### Windows 7
+
+The windows installer of graphviz: [graphviz-X.XX.msi](http://www.graphviz.org/Download..php)
+
+**Remember** to set the graphviz bin directory in your PATH. e.g. ```C:\Program Files (x86)\GraphvizX.XX\bin```.
+
+#### Manjaro 0.8.11 (arch linux)
+
+Install via `yaourt` the graphviz package e.g.: `yaourt graphviz`.
+
+### 1 - Install plugin in your project
+
 This plugin requires Gulp `~3.8.7`
 
 If you haven't used [Gulp](http://gulpjs.com/) before, be sure to check out the [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) guide, as it explains how to create a [Gulpfile](https://github.com/gulpjs/gulp#sample-gulpfilejs) as well as install and use Gulp plugins. Once you're familiar with that process, you may install this plugin with this command:
@@ -41,34 +65,6 @@ gulp.task('default', function(){
 ```
 
 execute the task and the diagrams will be in the output folder, in this example it is in the folder ```architecture```.
-
-## The task
-
-#### OS X
-
-***Requirements***
-
-- [**graphviz**](http://www.graphviz.org/)
-
-if running OS X and using homebrew, simply execute:
-
-```
- brew install graphviz
-```
-
-#### Windows 7
-
-***Requirements***
-
-The windows installer of graphviz: [graphviz-X.XX.msi](http://www.graphviz.org/Download..php), remember to set the Path and point it to your bin directory. e.g. ```C:\Program Files (x86)\GraphvizX.XX\bin```.
-
-Add the reference of graphviz binary in your PATH, for example : C:\Program Files\Graphviz2.38\bin
-
-#### Manjaro 0.8.11 (arch linux)
-
-***Requirements***
-
-Install via `yaourt` the graphviz package e.g.: `yaourt graphviz`.
 
 ## Demos
 
