@@ -59,7 +59,7 @@ module.exports = function(gutil) {
     },
 
     cleanPath = function(pathParam) {
-        return pathParam.replace('/', '\\');
+        return (os.platform() === 'win32' || os.platform() === 'win64') ? pathParam.replace('/', '\\') : pathParam;
     },
 
     templates = {

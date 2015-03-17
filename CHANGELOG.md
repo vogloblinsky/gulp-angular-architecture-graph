@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.3 - 2015-03-17
+### Fixed
+- issues on Linux.
+
 ## 0.0.2 - 2015-02-26
 ### Changed
 - README documentation cleaner.

@@ -176,6 +176,14 @@ Available graphviz colour schemes are shown [here](http://www.graphviz.org/doc/i
 
 ## Release History
 
+### 0.0.3
+
+- fixed issues on Linux.
+
+### 0.0.2
+
+- fixed issues on Windows.
+
 ### 0.0.1
 
 - initial release
