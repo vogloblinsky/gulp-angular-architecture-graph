@@ -92,7 +92,7 @@ Default value: `architecture`
 A string value that define the output directory.
 
 ```js
-architecture: 'out'
+dest: 'out'
 ```
 
 ### options.hideAngularServices
