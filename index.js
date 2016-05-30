@@ -7,15 +7,16 @@ var through     = require('through2'),
 
 gulpAngularGraph = function(options) {
     var _options = {
-        hideAngularServices: true,
-        shapeModules: 'component',
-        shapeFactories: 'ellipse',
-        shapeDirectives: 'cds',
-        colorScheme: 'paired12',
-        dest: 'architecture'
-    },
+            hideAngularServices: true,
+            shapeModules: 'component',
+            shapeFactories: 'ellipse',
+            shapeDirectives: 'cds',
+            colorScheme: 'paired12',
+            dest: 'architecture',
+            filterModulesPrefixes: []
+        },
 
-    _files = [];
+        _files = [];
 
     _.merge(_options, options);
 

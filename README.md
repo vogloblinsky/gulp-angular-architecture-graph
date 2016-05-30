@@ -14,7 +14,7 @@
 [codacy-url]: https://www.codacy.com/public/vincentogloblinsky/gulp-angular-architecture-graph
 [codacy-image]: https://www.codacy.com/project/badge/8d00b4d7b46a465fbf8a79dea9013d39
 
-Generate modules dependencies graph. 
+Generate modules dependencies graph.
 Port of https://github.com/lucalanca/grunt-angular-architecture-graph
 
 ## Getting Started
@@ -166,6 +166,15 @@ colorScheme: 'set19'
 ```
 
 Available graphviz colour schemes are shown [here](http://www.graphviz.org/doc/info/colors.html)
+
+### options.filterModulesPrefixes
+Type: `Array`
+Default value: `[]`
+
+An array containing strings of module name prefixes to remove from graph
+```js
+filterModulesPrefixes: ['ng', 'ui', 'formly', 'angular']
+```
 
 ## List of Contributors
 

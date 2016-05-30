@@ -125,7 +125,51 @@ module.exports = function(gutil) {
     },
 
     analyseFiles = function(file, options) {
-        var graph = architectureGraph(file, options);
+        var graph = architectureGraph(file, options),
+            i = 0,
+            _tmp = graph.angular.modules,
+            len = _tmp.length;
+        if (!Array.prototype.remove) {
+            Array.prototype.remove = function(vals, all) {
+                var i, removedItems = [];
+                if (!Array.isArray(vals)) vals = [vals];
+                for (var j = 0; j < vals.length; j++) {
+                    if (all) {
+                        for (i = this.length; i--;) {
+                            if (this[i] === vals[j]) removedItems.push(this.splice(i, 1));
+                        }
+                    } else {
+                        i = this.indexOf(vals[j]);
+                        if (i > -1) removedItems.push(this.splice(i, 1));
+                    }
+                }
+                return removedItems;
+            };
+        }
+
+        if (options.filterModulesPrefixes.length > 0) {
+            for (i; i < len; i++) {
+                var j = 0,
+                    leng = _tmp[i].modules.length,
+                    name = '',
+                    prefixesToRemove = [];
+                for (j; j < leng; j++) {
+                    name = _tmp[i].modules[j];
+                    var k = 0,
+                        lengt = options.filterModulesPrefixes.length;
+                    for (k; k < lengt; k++) {
+                        if (name.indexOf(options.filterModulesPrefixes[k]) === 0) {
+                            prefixesToRemove.push(name);
+                        }
+                    }
+                }
+                if (prefixesToRemove.length > 0) {
+                    _tmp[i].modules.remove(prefixesToRemove, true);
+                }
+            }
+
+        }
+
         return graph.angular;
     },
 

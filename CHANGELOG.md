@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.4 - 2016-05-30
+### Features
+- filter modules with prefixes.
+
 ## 0.0.3 - 2015-03-17
 ### Fixed
 - issues on Linux.
