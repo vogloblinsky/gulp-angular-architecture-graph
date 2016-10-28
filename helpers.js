@@ -89,6 +89,8 @@ module.exports = function(gutil) {
                               .replace(/\{1\}/g, options.shapeModules)
                               .replace(/\{2\}/g, options.shapeFactories)
                               .replace(/\{3\}/g, options.shapeDirectives)
+                              .replace(/\{4\}/g, options.shapeComponents)
+                              .replace(/\{5\}/g, options.shapeFilters)
                               .replace(/\{scheme\}/g, options.colorScheme);
             });
 

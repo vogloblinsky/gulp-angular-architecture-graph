@@ -17,6 +17,8 @@
 Generate modules dependencies graph.
 Port of https://github.com/lucalanca/grunt-angular-architecture-graph
 
+![angular-ui/ui-router state module](https://raw.githubusercontent.com/vogloblinsky/gulp-angular-architecture-graph/master/docs/images/ui.router.state.png "angular-ui/ui-router Dependencies graph")
+
 ## Getting Started
 
 ### 0 - Install graphviz
@@ -66,22 +68,12 @@ gulp.task('default', function(){
 
 execute the task and the diagrams will be in the output folder, in this example it is in the folder ```architecture```.
 
-## Demos
+## Demo
 
 ![legend](https://raw.githubusercontent.com/vogloblinsky/gulp-angular-architecture-graph/master/docs/images/legend.png "Generated Graph Legend")
 
 - ui-router overview diagram
 ![angular-ui/ui-router overview](https://raw.githubusercontent.com/vogloblinsky/gulp-angular-architecture-graph/master/docs/images/all.ui-router.png "angular-ui/ui-router Dependencies graph")
-
-- ui-router ui.router.state module
-![angular-ui/ui-router state module](https://raw.githubusercontent.com/vogloblinsky/gulp-angular-architecture-graph/master/docs/images/ui.router.state.png "angular-ui/ui-router Dependencies graph")
-
-- ui-bootstrap
-![angular-ui/bootstrap ](https://raw.githubusercontent.com/vogloblinsky/gulp-angular-architecture-graph/master/docs/images/all.ui-bootstrap.png "angular-ui/bootstrap Dependencies graph")
-
-- ui-bootstrap ui.bootstrap.tooltip module
-![angular-ui/bootstrap tooltip module ](https://raw.githubusercontent.com/vogloblinsky/gulp-angular-architecture-graph/master/docs/images/ui.bootstrap.tooltip.png "angular-ui/bootstrap Dependencies graph")
-
 
 ## Options
 
@@ -137,26 +129,41 @@ nodes.
 shapeFactories: 'house'
 ```
 
+### options.shapeFilters
+Type: `String`
+Default value: `rectangle`
+
+A string value that allows you to change the default shape used for filters nodes.
+
+```js
+shapeFilters: 'house'
+```
+
 ### options.shapeDirectives
 Type: `String`
-Default value: `cds`
+Default value: `note`
 
-A string value that allows you to change the default shape used for
-
- * Filter
- * Directive
-
-nodes.
+A string value that allows you to change the default shape used for directives nodes.
 
 ```js
 shapeDirectives: 'trapezium'
+```
+
+### options.shapeComponents
+Type: `String`
+Default value: `folder`
+
+A string value that allows you to change the default shape used for components nodes.
+
+```js
+shapeComponents: 'trapezium'
 ```
 
 Available graphviz shapes are shown [here](http://www.graphviz.org/doc/info/shapes.html)
 
 ### options.colorScheme
 Type: `String`
-Default value: `paired12`
+Default value: `set312`
 
 A string value that allows you to change the  graph colour scheme. You currently need to choose a scheme with at least 9 colours to ensure that all nodes
 are coloured. Colour schemes which include white or very pale colours will cause some nodes to be hard to see or appear invisible against the white background
@@ -183,16 +190,6 @@ filterModulesPrefixes: ['ng', 'ui', 'formly', 'angular']
 - carlo-colombo (initial creator of the project)
 - manekinekko
 
-## Release History
+## Release notes
 
-### 0.0.3
-
-- fixed issues on Linux.
-
-### 0.0.2
-
-- fixed issues on Windows.
-
-### 0.0.1
-
-- initial release
+[CHANGELOG.md](https://github.com/vogloblinsky/gulp-angular-architecture-graph/blob/master/CHANGELOG.md)

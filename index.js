@@ -10,8 +10,10 @@ gulpAngularGraph = function(options) {
             hideAngularServices: true,
             shapeModules: 'component',
             shapeFactories: 'ellipse',
-            shapeDirectives: 'cds',
-            colorScheme: 'paired12',
+            shapeFilters: 'rectangle',
+            shapeDirectives: 'note',
+            shapeComponents: 'folder',
+            colorScheme: 'set312',
             dest: 'architecture',
             filterModulesPrefixes: []
         },
