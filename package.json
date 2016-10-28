@@ -33,7 +33,7 @@
     "intern": "^3.3.1"
   },
   "dependencies": {
-    "angular-architecture-graph": "^0.2.3",
+    "angular-architecture-graph": "^0.2.4",
     "dot": "^1.0.3",
     "through2": "^2.0.1",
     "gulp-util": "^3.0.7",
