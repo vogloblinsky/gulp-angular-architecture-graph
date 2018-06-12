@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## 0.0.6 - 2018-06-12
+### Features
+- largeGraph option
+
 ## 0.0.5 - 2016-10-28
 ### Features
 - support .component API

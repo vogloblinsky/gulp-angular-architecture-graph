@@ -1,6 +1,6 @@
 {
   "name": "gulp-angular-architecture-graph",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Generate modules dependencies graph",
   "main": "index.js",
   "scripts": {
