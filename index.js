@@ -8,6 +8,7 @@ var through     = require('through2'),
 gulpAngularGraph = function(options) {
     var _options = {
             hideAngularServices: true,
+            largeGraph: false,
             shapeModules: 'component',
             shapeFactories: 'ellipse',
             shapeFilters: 'rectangle',

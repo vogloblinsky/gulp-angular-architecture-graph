@@ -97,6 +97,17 @@ A boolean value that shows angular services (e.g. $http, $q) as dependencies whe
 hideAngularServices: false
 ```
 
+### options.largeGraph
+Type: `Boolean`
+Default value: `false`
+
+A boolean value that switch the rendering engine from dot for small projects to sdfp for large projects.
+dot engine render horizontal graph, sfdp render square graph.
+
+```js
+largeGraph: false
+```
+
 ### options.shapeModules
 Type: `String`
 Default value: `component`

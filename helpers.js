@@ -228,12 +228,18 @@ module.exports = function(gutil) {
             //TODO : handle subdirectories
 
             for (i; i < len; i++) {
+                var engine = 'dot';
+                if (typeof config.largeGraph !== 'undefined' && config.largeGraph) {
+                    engine = 'sfdp';
+                }
                 var finalName = files[i].replace(dotsFolder, pngsFolder).replace('.dot', '.png'),
-                ls = process.spawn('dot', [
+                ls = process.spawn(engine, [
                     '-Tpng',
                     files[i],
                     '-o',
-                    finalName
+                    finalName,
+                    '-Goverlap=false',
+                    '-Gsplines=true'
                 ]);
 
                 ls.stdout.on('data', function(data) {
